@@ -1,0 +1,323 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10820,        313]
+NotebookOptionsPosition[     10499,        298]
+NotebookOutlinePosition[     10839,        313]
+CellTagsIndexPosition[     10796,        310]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\:4e0b\:9762\:662f\:4e8c\:7ef4\:60c5\:51b5", "*)"}], 
+  RowBox[{"(*", "\:8f93\:5165\:90e8\:5206", "*)"}], 
+  RowBox[{"(*", "\:8d77\:59cb\:4f4d\:7f6e", "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"weizhi2D", "=", 
+     RowBox[{"{", 
+      RowBox[{".5", ",", ".3"}], "}"}]}], ";"}], "\n", 
+   RowBox[{"(*", "\:6846\:67b6\:957f", "*)"}], 
+   RowBox[{
+    RowBox[{"kuangjia2D", "=", 
+     RowBox[{"{", 
+      RowBox[{"7", ",", "6.4"}], "}"}]}], ";"}], "\n", 
+   RowBox[{"(*", "\:6700\:5927\:901f\:5ea6", "*)"}], 
+   RowBox[{
+    RowBox[{"sudu2D", "=", 
+     RowBox[{"{", 
+      RowBox[{".5", ",", ".31"}], "}"}]}], ";"}], "\n", 
+   RowBox[{"(*", "\:65f6\:95f4", "*)"}], 
+   RowBox[{
+    RowBox[{"shijian2D", "=", "0"}], ";"}], "\n", 
+   RowBox[{"(*", "\:6700\:5927\:65f6\:95f4\:95f4\:9694", "*)"}], 
+   RowBox[{
+    RowBox[{"jiange2D", "=", ".1"}], ";"}], "\n", 
+   RowBox[{"(*", "\:7a0b\:5e8f\:90e8\:5206", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"hanshu2D", "=", 
+     RowBox[{"{", 
+      RowBox[{"weizhi2D", ",", "shijian2D"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"s2D", "[", 
+      RowBox[{"v_", ",", "t_", ",", "k_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Floor", "[", 
+        RowBox[{"Mod", "[", 
+         RowBox[{
+          RowBox[{"v", "*", 
+           RowBox[{"t", "/", "k"}]}], ",", "2"}], "]"}], "]"}], "*", 
+       RowBox[{"(", 
+        RowBox[{"2", "-", 
+         RowBox[{"Mod", "[", 
+          RowBox[{
+           RowBox[{"v", "*", 
+            RowBox[{"t", "/", "k"}]}], ",", "2"}], "]"}]}], ")"}], "*", "k"}],
+       "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         RowBox[{"Floor", "[", 
+          RowBox[{"Mod", "[", 
+           RowBox[{
+            RowBox[{"v", "*", 
+             RowBox[{"t", "/", "k"}]}], ",", "2"}], "]"}], "]"}]}], ")"}], 
+       "*", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{"v", "*", 
+          RowBox[{"t", "/", "k"}]}], ",", "2"}], "]"}], "*", "k"}]}]}], ";"}],
+    "\n", 
+   RowBox[{"Framed", "@", 
+    RowBox[{"DynamicModule", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"contents", "=", 
+        RowBox[{"{", "}"}]}], "}"}], ",", 
+      RowBox[{"EventHandler", "[", " ", 
+       RowBox[{
+        RowBox[{"Graphics", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"PointSize", "[", "0.05", "]"}], ",", "Red", ",", 
+            RowBox[{"Point", "[", 
+             RowBox[{"Dynamic", "[", 
+              RowBox[{
+               RowBox[{"contents", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"s2D", "[", 
+                    RowBox[{"sudu2D", ",", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", "kuangjia2D"}], 
+                    "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "+", 
+                    RowBox[{"jiange2D", "*", 
+                    RowBox[{"Random", "[", "]"}]}]}]}], "}"}], "&"}], ",", 
+                  "contents"}], "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"Map", "[", 
+                RowBox[{"First", ",", "contents"}], "]"}]}], "]"}], "]"}]}], 
+           "}"}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"kuangjia2D", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"kuangjia2D", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}], "}"}]}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "180"}]}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<KeyDown\>\"", ",", "\"\<2\>\""}], "}"}], "->", 
+         RowBox[{"(", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"contents", ",", "hanshu2D"}], "]"}], ")"}]}]}], "]"}]}], 
+     "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.646449635597206*^9, 3.6464497219581456`*^9}, {
+  3.6464498874796133`*^9, 3.6464499142531443`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\:4e0b\:9762\:662f\:4e09\:7ef4\:60c5\:51b5", "*)"}], 
+  RowBox[{"(*", "\:8f93\:5165\:90e8\:5206", "*)"}], 
+  RowBox[{"(*", "\:8d77\:59cb\:4f4d\:7f6e", "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"weizhi3D", "=", 
+     RowBox[{"{", 
+      RowBox[{".5", ",", "0", ",", ".3"}], "}"}]}], ";"}], "\n", 
+   RowBox[{"(*", "\:6846\:67b6\:957f", "*)"}], 
+   RowBox[{
+    RowBox[{"kuangjia3D", "=", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "8", ",", "6"}], "}"}]}], ";"}], "\n", 
+   RowBox[{"(*", "\:901f\:5ea6", "*)"}], 
+   RowBox[{
+    RowBox[{"sudu3D", "=", 
+     RowBox[{"{", 
+      RowBox[{".5", ",", ".5", ",", ".3"}], "}"}]}], ";"}], "\n", 
+   RowBox[{"(*", "\:65f6\:95f4", "*)"}], 
+   RowBox[{
+    RowBox[{"shijian3D", "=", "0"}], ";"}], "\n", 
+   RowBox[{"(*", "\:6700\:5927\:65f6\:95f4\:95f4\:9694", "*)"}], 
+   RowBox[{
+    RowBox[{"jiange3D", "=", ".5"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:7a0b\:5e8f\:90e8\:5206", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"hanshu3D", "=", 
+     RowBox[{"{", 
+      RowBox[{"weizhi3D", ",", "shijian3D"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"s3D", "[", 
+      RowBox[{"v_", ",", "t_", ",", "k_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Floor", "[", 
+        RowBox[{"Mod", "[", 
+         RowBox[{
+          RowBox[{"v", "*", 
+           RowBox[{"t", "/", "k"}]}], ",", "2"}], "]"}], "]"}], "*", 
+       RowBox[{"(", 
+        RowBox[{"2", "-", 
+         RowBox[{"Mod", "[", 
+          RowBox[{
+           RowBox[{"v", "*", 
+            RowBox[{"t", "/", "k"}]}], ",", "2"}], "]"}]}], ")"}], "*", "k"}],
+       "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         RowBox[{"Floor", "[", 
+          RowBox[{"Mod", "[", 
+           RowBox[{
+            RowBox[{"v", "*", 
+             RowBox[{"t", "/", "k"}]}], ",", "2"}], "]"}], "]"}]}], ")"}], 
+       "*", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{"v", "*", 
+          RowBox[{"t", "/", "k"}]}], ",", "2"}], "]"}], "*", "k"}]}]}], ";"}],
+    "\n", 
+   RowBox[{"Framed", "@", 
+    RowBox[{"DynamicModule", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"contents", "=", 
+        RowBox[{"{", "}"}]}], "}"}], ",", 
+      RowBox[{"EventHandler", "[", 
+       RowBox[{
+        RowBox[{"Graphics3D", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"PointSize", "[", "0.05", "]"}], ",", "Green", ",", 
+            RowBox[{"Point", "[", 
+             RowBox[{"Dynamic", "[", 
+              RowBox[{
+               RowBox[{"contents", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"s3D", "[", 
+                    RowBox[{"sudu3D", ",", 
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", "kuangjia3D"}], 
+                    "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "+", 
+                    RowBox[{"jiange3D", "*", 
+                    RowBox[{"Random", "[", "]"}]}]}]}], "}"}], "&"}], ",", 
+                  "contents"}], "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"Map", "[", 
+                RowBox[{"First", ",", "contents"}], "]"}]}], "]"}], "]"}]}], 
+           "}"}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"kuangjia3D", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"kuangjia3D", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"kuangjia3D", "[", 
+                RowBox[{"[", "3", "]"}], "]"}]}], "}"}]}], "}"}]}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "180"}]}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<KeyDown\>\"", ",", "\"\<3\>\""}], "}"}], "->", 
+         RowBox[{"(", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"contents", ",", "hanshu3D"}], "]"}], ")"}]}]}], "]"}]}], 
+     "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6464497788543997`*^9, 3.646449803913833*^9}, {
+  3.646449920028475*^9, 3.646449924072706*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Orange", ",", 
+       RowBox[{"Specularity", "[", 
+        RowBox[{"White", ",", "50"}], "]"}], ",", 
+       RowBox[{"Sphere", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", 
+           RowBox[{"10000", "-", 
+            RowBox[{"0.5", "*", "10", "*", 
+             RowBox[{"t", "^", "2"}]}]}]}], "}"}], ",", "200"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "10200"}], "}"}]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"400", ",", "400"}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "\"\<time\>\""}], "}"}], ",", "0", ",", 
+     "44.72", ",", 
+     RowBox[{"ControlType", "\[Rule]", "Trigger"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6464504959784174`*^9, 3.646450495979417*^9}}]
+},
+WindowSize->{1174, 897},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (July 1, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4335, 119, 312, "Input"],
+Cell[4896, 141, 4512, 123, 312, "Input"],
+Cell[9411, 266, 1084, 30, 52, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
